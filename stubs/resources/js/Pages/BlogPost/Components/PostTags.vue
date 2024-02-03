@@ -1,0 +1,75 @@
+<template>
+    <p class="mb-1 mt-5">Tag</p>
+    <AppCombobox
+        v-model="selectedTag"
+        :options="tags"
+        combo-label="Select a Tag"
+        class="w-64 xl:w-full"
+    />
+
+    <ul class="mt-2">
+        <li
+            v-for="tag in postStore.post.tags"
+            :key="tag.id"
+            class="mb-3 flex items-center justify-between rounded bg-skin-neutral-3 p-3"
+        >
+            <span>
+                {{ tag.name }}
+            </span>
+
+            <i
+                class="ri-close-line text-skin-neutral-11 hover:cursor-pointer hover:text-skin-neutral-12"
+                @click="removeTag(tag)"
+            ></i>
+        </li>
+    </ul>
+</template>
+
+<script setup>
+import { ref, watch } from 'vue'
+import { usePostStore } from '../PostStore'
+const postStore = usePostStore()
+
+const props = defineProps({
+    tags: {
+        type: Object,
+        default: () => {}
+    }
+})
+
+const selectedTag = ref(null)
+
+const updateTagsStatus = () => {
+    if (!postStore.tagsHasChanged) {
+        postStore.post.tagsHasChanged = true
+    }
+}
+
+watch(selectedTag, (value) => {
+    if (!value) {
+        return
+    }
+
+    const postTags = postStore.post.tags
+
+    const tag = {
+        id: value.value,
+        name: value.label
+    }
+
+    if (!postTags.some((tag) => tag.id === value.value)) {
+        postTags.push(tag)
+
+        updateTagsStatus()
+    }
+})
+
+const removeTag = (tag) => {
+    const postTags = postStore.post.tags
+    const index = postTags.indexOf(tag)
+
+    postTags.splice(index, 1)
+
+    updateTagsStatus()
+}
+</script>
