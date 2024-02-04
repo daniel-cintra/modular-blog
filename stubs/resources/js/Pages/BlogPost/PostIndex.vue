@@ -100,6 +100,7 @@
 <script setup>
 import { ref } from 'vue'
 import useAuthCan from '@/Composables/useAuthCan'
+import AppImageNotAvailable from '@/Components/Misc/AppImageNotAvailable.vue'
 
 const props = defineProps({
     posts: {

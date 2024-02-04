@@ -33,13 +33,13 @@
 
                     <AppDataTableData>
                         {{ item.name }}<br />
-                        <small class="text-sm text-skin-neutral-9">{{
+                        <small class="text-skin-neutral-9 text-sm">{{
                             item.email
                         }}</small>
                     </AppDataTableData>
 
                     <AppDataTableData>
-                        <small class="text-sm text-skin-neutral-9">
+                        <small class="text-skin-neutral-9 text-sm">
                             <i class="ri-github-fill mr-0 h-5 w-5"></i>
                             {{ item.github_handle }}<br />
                             <i class="ri-twitter-x-line mr-1 h-5 w-5"></i
@@ -103,6 +103,7 @@
 <script setup>
 import { ref } from 'vue'
 import useAuthCan from '@/Composables/useAuthCan'
+import AppImageNotAvailable from '@/Components/Misc/AppImageNotAvailable.vue'
 
 const props = defineProps({
     authors: {

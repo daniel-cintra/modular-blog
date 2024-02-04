@@ -11,14 +11,14 @@
         <li
             v-for="tag in postStore.post.tags"
             :key="tag.id"
-            class="mb-3 flex items-center justify-between rounded bg-skin-neutral-3 p-3"
+            class="bg-skin-neutral-3 mb-3 flex items-center justify-between rounded p-3"
         >
             <span>
                 {{ tag.name }}
             </span>
 
             <i
-                class="ri-close-line text-skin-neutral-11 hover:cursor-pointer hover:text-skin-neutral-12"
+                class="ri-close-line text-skin-neutral-11 hover:text-skin-neutral-12 hover:cursor-pointer"
                 @click="removeTag(tag)"
             ></i>
         </li>

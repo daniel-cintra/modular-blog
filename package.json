@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "format": "prettier --write \"**/*.{js,vue}\""
+    },
+    "devDependencies": {
+        "eslint": "^v8.52.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-vue": "^v9.18.0",
+        "prettier": "^3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.11",
+        "tailwindcss": "^3.4.1"
+    }
+}
