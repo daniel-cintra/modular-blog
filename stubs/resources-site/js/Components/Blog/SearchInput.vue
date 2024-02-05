@@ -14,8 +14,8 @@
                 </svg>
             </div>
             <AppInputText
-                id="post-search"
                 v-model="searchTerm"
+                id="post-search"
                 placeholder="Search Posts..."
                 name="search"
                 class="py-2 pl-11"
