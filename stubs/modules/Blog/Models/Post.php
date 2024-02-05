@@ -24,7 +24,7 @@ class Post extends BaseModel
     protected $appends = ['image_url'];
 
     protected $casts = [
-        'published_at' => 'datetime',
+        'published_at' => 'datetime:Y-m-d',
     ];
 
     public function tags(): BelongsToMany

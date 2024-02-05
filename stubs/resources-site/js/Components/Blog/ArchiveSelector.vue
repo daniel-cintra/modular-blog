@@ -1,5 +1,5 @@
 <template>
-    <div class="h-12 bg-yellow-100">
+    <div class="bg-skin-neutral-1 h-12">
         <AppCombobox
             v-model="selectedArchiveOption"
             :options="archiveOptionsList"

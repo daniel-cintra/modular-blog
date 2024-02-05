@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-yellow-100">
+    <div class="bg-skin-neutral-1 relative">
         <div class="flex items-center align-middle">
             <div class="pointer-events-none absolute flex items-center pl-3">
                 <svg

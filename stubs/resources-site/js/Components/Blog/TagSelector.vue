@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-yellow-100">
+    <div class="bg-skin-neutral-1 relative">
         <AppCombobox
             v-model="selectedTagOption"
             :options="tagOptions"
