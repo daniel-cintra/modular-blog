@@ -21,7 +21,7 @@
                 class="py-2 pl-11"
                 @keydown.enter="searchPosts"
             >
-    </AppInputText>
+</AppInputText>
         </div>
     </div>
 </template>
