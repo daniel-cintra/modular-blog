@@ -1,61 +1,67 @@
 {
-  "name": "daniel-cintra/modular-blog",
-  "description": "A Blog Modules for a Modular Application.",
-  "authors": [
-    {
-      "name": "Daniel Cintra",
-      "email": "danic10@gmail.com"
-    }
-  ],
-  "require": {
-    "daniel-cintra/modular": "^0.2.26",
-    "cviebrock/eloquent-sluggable": "^10.0"
-  },
-  "require-dev": {
-    "pestphp/pest": "^2.33",
-    "orchestra/testbench": "^8.21",
-    "pestphp/pest-plugin-laravel": "^2.2",
-    "laravel/pint": "^1.13"
-  },
-  "autoload": {
-    "psr-4": {
-      "Modular\\Blog\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Modular\\Blog\\Tests\\": "tests",
-      "Workbench\\App\\": "workbench/app/",
-      "Workbench\\Database\\Factories\\": "workbench/database/factories/",
-      "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Modular\\Blog\\BlogServiceProvider"
-      ]
-    }
-  },
-  "scripts": {
-    "post-autoload-dump": [
-      "@clear",
-      "@prepare"
+    "name": "daniel-cintra/modular-blog",
+    "description": "A Blog Modules for a Modular Application.",
+    "authors": [
+        {
+            "name": "Daniel Cintra",
+            "email": "danic10@gmail.com"
+        }
     ],
-    "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
-    "prepare": "@php vendor/bin/testbench package:discover --ansi",
-    "build": "@php vendor/bin/testbench workbench:build --ansi",
-    "serve": [
-      "Composer\\Config::disableProcessTimeout",
-      "@build",
-      "@php vendor/bin/testbench serve"
-    ],
-    "lint": [
-      "@php vendor/bin/pint",
-      "@php vendor/bin/phpstan analyse"
-    ],
-    "test": [
-      "@php vendor/bin/pest"
-    ]
-  }
+    "require": {
+        "daniel-cintra/modular": "^0.2.26",
+        "cviebrock/eloquent-sluggable": "^10.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.33",
+        "orchestra/testbench": "^8.21",
+        "pestphp/pest-plugin-laravel": "^2.2",
+        "laravel/pint": "^1.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modular\\Blog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modular\\Blog\\Tests\\": "tests",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modular\\Blog\\BlogServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "lint": [
+            "@php vendor/bin/pint",
+            "@php vendor/bin/phpstan analyse"
+        ],
+        "test": [
+            "@php vendor/bin/pest"
+        ]
+    }
 }
