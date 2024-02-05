@@ -14,13 +14,14 @@
                 </svg>
             </div>
             <AppInputText
-                v-model="searchTerm"
                 id="post-search"
+                v-model="searchTerm"
                 placeholder="Search Posts..."
                 name="search"
                 class="py-2 pl-11"
                 @keydown.enter="searchPosts"
-            ></AppInputText>
+            >
+    </AppInputText>
         </div>
     </div>
 </template>
