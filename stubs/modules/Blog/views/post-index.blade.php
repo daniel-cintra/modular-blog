@@ -36,8 +36,15 @@
                         <article class="flex flex-col items-start justify-between">
                             <div class="relative w-full">
                                 <a href="/blog/{{ $post->slug }}" class="block">
-                                    <img src="{{ $post->image_url }}" alt="{{ $post->title }}"
-                                        class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                                    @if ($post->image_url)
+                                        <img src="{{ $post->image_url }}" alt="{{ $post->title }}"
+                                            class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                                    @else
+                                        <div
+                                            class="aspect-[16/9] w-full rounded-2xl  sm:aspect-[2/1] lg:aspect-[3/2] flex items-center justify-center bg-gradient-to-bl from-skin-neutral-1 to-skin-neutral-6">
+                                            <span class="text-lg text-skin-neutral-9">N/A</span>
+                                        </div>
+                                    @endif
                                     <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
                                 </a>
                             </div>

@@ -2,13 +2,13 @@ providers:
   # - Workbench\App\Providers\WorkbenchServiceProvider
 
 migrations:
-  - workbench/database/migrations
+  # - workbench/database/migrations
 
 seeders:
-  - Workbench\Database\Seeders\DatabaseSeeder
+  - Workbench\Database\Seeders\BlogSeeder
 
 workbench:
-  start: "/"
+  start: '/'
   install: true
   discovers:
     web: true

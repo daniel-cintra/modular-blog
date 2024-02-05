@@ -101,7 +101,7 @@
 import AppImageNotAvailable from '@/Components/Misc/AppImageNotAvailable.vue'
 import { ref } from 'vue'
 import useAuthCan from '@/Composables/useAuthCan'
-import AppImageNotAvailable from '@/Components/Misc/AppImageNotAvailable.vue'
+import AppImageNotAvailable from '@/Components/Modules/Blog/AppImageNotAvailable.vue'
 
 const props = defineProps({
     categories: {
