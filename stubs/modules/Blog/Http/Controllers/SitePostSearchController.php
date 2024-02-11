@@ -7,10 +7,11 @@ use Modules\Blog\Models\Post;
 use Modules\Blog\Services\Site\GetArchiveOptions;
 use Modules\Blog\Services\Site\GetTagOptions;
 use Modules\Support\Http\Controllers\SiteController;
+use Illuminate\View\View;
 
 class SitePostSearchController extends SiteController
 {
-    public function index(GetArchiveOptions $getArchiveOptions, GetTagOptions $getTagOptions, string $searchTerm)
+    public function index(GetArchiveOptions $getArchiveOptions, GetTagOptions $getTagOptions, string $searchTerm): View
     {
         $posts = Post::with('tags')
             ->where('published_at', '<=', Carbon::now())
@@ -26,7 +27,7 @@ class SitePostSearchController extends SiteController
         return view('blog::post-index', compact('posts', 'archiveOptions', 'tags', 'fromSearch'));
     }
 
-    public function show($slug)
+    public function show($slug): View
     {
         $post = Post::where('slug', $slug)->first();
 

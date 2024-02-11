@@ -64,7 +64,4 @@ it('can copy the Blog directories and files', function () {
     $this->assertFileExists(base_path('resources-site/js/Components/Blog/BlogToolbar.vue'));
     $this->assertFileExists(base_path('resources-site/js/Components/Blog/SearchInput.vue'));
     $this->assertFileExists(base_path('resources-site/js/Components/Blog/TagSelector.vue'));
-
-    // database/seeders
-    $this->assertFileExists(base_path('database/seeders/BlogSeeder.php'));
 });

@@ -65,7 +65,7 @@ class PostController extends BackendController
             ->with('success', 'Post created.');
     }
 
-    public function edit(int $id, GetCategoryOptions $getCategoryOptions, GetTagOptions $getTagOptions, GetAuthorOptions $getAuthorOptions): Response
+    public function edit(GetCategoryOptions $getCategoryOptions, GetTagOptions $getTagOptions, GetAuthorOptions $getAuthorOptions, int $id,): Response
     {
         return inertia('BlogPost/PostForm', [
             'post' => Post::with(['tags' => function ($query) {
@@ -102,7 +102,7 @@ class PostController extends BackendController
             ->with('success', 'Post updated.');
     }
 
-    public function destroy(int $id)
+    public function destroy(int $id): RedirectResponse
     {
         Post::findOrFail($id)->delete();
 

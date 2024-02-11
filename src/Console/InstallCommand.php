@@ -17,7 +17,6 @@ class InstallCommand extends Command
         $this->copyResourcesFiles();
         $this->copyResourcesSiteFiles();
         $this->copyResourcesComponentsFiles();
-        $this->copyBlogSeeder();
 
         $this->info('Modular Blog installed successfully.');
         $this->info('Running the following command to migrate the Blog module:');
@@ -61,13 +60,5 @@ class InstallCommand extends Command
         (new Filesystem)->ensureDirectoryExists(base_path('resources-site'));
         (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources-site', base_path('resources-site'));
         $this->info('Blog Module resources-site copied successfully.');
-    }
-
-    private function copyBlogSeeder(): void
-    {
-        $this->info('Copying Blog Seeder...');
-        (new Filesystem)->ensureDirectoryExists(base_path('database/seeders'));
-        (new Filesystem)->copy(__DIR__ . '/../../stubs/modules/Blog/Database/Seeders/BlogSeeder.php', base_path('database/seeders/BlogSeeder.php'));
-        $this->info('Blog Seeder copied successfully.');
     }
 }

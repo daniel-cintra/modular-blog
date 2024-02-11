@@ -53,7 +53,7 @@ class TagController extends BackendController
         ]);
     }
 
-    public function update(TagValidate $request, int $id)
+    public function update(TagValidate $request, int $id): RedirectResponse
     {
         $tag = Tag::findOrFail($id);
 
@@ -63,7 +63,7 @@ class TagController extends BackendController
             ->with('success', 'Tag updated.');
     }
 
-    public function destroy(int $id)
+    public function destroy(int $id): RedirectResponse
     {
         Tag::findOrFail($id)->delete();
 

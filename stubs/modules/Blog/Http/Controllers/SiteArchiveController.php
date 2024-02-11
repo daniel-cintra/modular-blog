@@ -6,10 +6,11 @@ use Modules\Blog\Services\Site\GetArchiveOptions;
 use Modules\Blog\Services\Site\GetPostsFromArchive;
 use Modules\Blog\Services\Site\GetTagOptions;
 use Modules\Support\Http\Controllers\SiteController;
+use Illuminate\View\View;
 
 class SiteArchiveController extends SiteController
 {
-    public function index(GetArchiveOptions $getArchiveOptions, GetTagOptions $getTagOptions, GetPostsFromArchive $getPostsFromArchive, string $archiveDate)
+    public function index(GetArchiveOptions $getArchiveOptions, GetTagOptions $getTagOptions, GetPostsFromArchive $getPostsFromArchive, string $archiveDate): View
     {
         $posts = $getPostsFromArchive->get($archiveDate);
 

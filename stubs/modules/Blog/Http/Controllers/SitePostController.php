@@ -7,10 +7,11 @@ use Modules\Blog\Models\Post;
 use Modules\Blog\Services\Site\GetArchiveOptions;
 use Modules\Blog\Services\Site\GetTagOptions;
 use Modules\Support\Http\Controllers\SiteController;
+use Illuminate\View\View;
 
 class SitePostController extends SiteController
 {
-    public function index(GetArchiveOptions $getArchiveOptions, GetTagOptions $getTagOptions)
+    public function index(GetArchiveOptions $getArchiveOptions, GetTagOptions $getTagOptions): View
     {
         $posts = Post::with('tags')
             ->where('published_at', '<=', Carbon::now())
