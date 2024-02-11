@@ -2,9 +2,9 @@
 
 namespace Modular\Blog\Tests;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modular\Blog\BlogServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 abstract class TestCase extends Orchestra
 {

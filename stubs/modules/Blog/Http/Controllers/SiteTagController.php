@@ -3,12 +3,12 @@
 namespace Modules\Blog\Http\Controllers;
 
 use Carbon\Carbon;
+use Illuminate\View\View;
 use Modules\Blog\Models\Post;
 use Modules\Blog\Models\Tag;
 use Modules\Blog\Services\Site\GetArchiveOptions;
 use Modules\Blog\Services\Site\GetTagOptions;
 use Modules\Support\Http\Controllers\SiteController;
-use Illuminate\View\View;
 
 class SiteTagController extends SiteController
 {

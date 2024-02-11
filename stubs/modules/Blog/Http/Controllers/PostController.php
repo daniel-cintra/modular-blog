@@ -65,7 +65,7 @@ class PostController extends BackendController
             ->with('success', 'Post created.');
     }
 
-    public function edit(GetCategoryOptions $getCategoryOptions, GetTagOptions $getTagOptions, GetAuthorOptions $getAuthorOptions, int $id,): Response
+    public function edit(GetCategoryOptions $getCategoryOptions, GetTagOptions $getTagOptions, GetAuthorOptions $getAuthorOptions, int $id): Response
     {
         return inertia('BlogPost/PostForm', [
             'post' => Post::with(['tags' => function ($query) {
