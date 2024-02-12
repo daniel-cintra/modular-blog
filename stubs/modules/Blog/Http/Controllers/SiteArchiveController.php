@@ -2,11 +2,11 @@
 
 namespace Modules\Blog\Http\Controllers;
 
+use Illuminate\View\View;
 use Modules\Blog\Services\Site\GetArchiveOptions;
 use Modules\Blog\Services\Site\GetPostsFromArchive;
 use Modules\Blog\Services\Site\GetTagOptions;
 use Modules\Support\Http\Controllers\SiteController;
-use Illuminate\View\View;
 
 class SiteArchiveController extends SiteController
 {
