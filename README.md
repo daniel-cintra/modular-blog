@@ -146,6 +146,12 @@ export default {
                     link: route('blogCategory.index')
                 },
                 {
+                    label: 'Tags',
+                    permission: 'Blog: Tag - List',
+                    icon: 'ri-price-tag-3-line',
+                    link: route('blogTag.index')
+                },
+                {
                     label: 'Authors',
                     permission: 'Blog: Author - List',
                     icon: 'ri-team-line',

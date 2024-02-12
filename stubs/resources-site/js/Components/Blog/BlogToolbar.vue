@@ -1,6 +1,6 @@
 <template>
     <div class="mx-auto my-6 max-w-7xl px-6 lg:px-9">
-        <div class="grid grid-cols-1 gap-x-9 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-9 lg:grid-cols-3">
             <ArchiveSelector
                 :archive-options="archiveOptions"
             ></ArchiveSelector>

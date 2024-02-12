@@ -1,11 +1,11 @@
 <template>
-    <div class="bg-skin-neutral-1 relative">
+    <div class="bg-skin-neutral-1 h-12">
         <AppCombobox
             v-model="selectedTagOption"
             :options="tagOptions"
             :use-search="false"
             combo-label="Tags"
-            class="!absolute !z-50 w-full"
+            class="w-full"
         />
     </div>
 </template>
