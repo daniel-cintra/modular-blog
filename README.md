@@ -171,7 +171,7 @@ Add the menu items to the `resources/js/Configs/menu.js` items array:
 ```js
 
 export default {
-    // main navigation - side menu
+    // Main navigation - Side Menu
     items: [
         ...
         {
