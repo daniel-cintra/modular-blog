@@ -1,5 +1,12 @@
 <template>
     <AppSectionHeader title="Blogs" :bread-crumb="breadCrumb">
+        <AppButton
+            v-if="can(isCreate ? 'Blog: Post - Create' : 'Blog: Post - Edit')"
+            class="btn btn-primary mt-6"
+            @click="submitForm"
+        >
+            Save
+        </AppButton>
     </AppSectionHeader>
 
     <div class="flex flex-col xl:flex-row">
@@ -31,13 +38,18 @@
         </AppCard>
     </div>
 
-    <AppButton class="btn btn-primary mt-6" @click="submitForm">
+    <AppButton
+        v-if="can(isCreate ? 'Blog: Post - Create' : 'Blog: Post - Edit')"
+        class="btn btn-primary mt-6"
+        @click="submitForm"
+    >
         Save
     </AppButton>
 </template>
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
+import useAuthCan from '@/Composables/useAuthCan'
 
 import { onUnmounted } from 'vue'
 
@@ -51,7 +63,9 @@ import PostCategory from './Components/PostCategory.vue'
 import PostTags from './Components/PostTags.vue'
 import PostAuthor from './Components/PostAuthor.vue'
 import { usePostStore } from './PostStore'
+
 const postStore = usePostStore()
+const { can } = useAuthCan()
 
 const props = defineProps({
     post: {
