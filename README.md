@@ -1,6 +1,6 @@
 <p align="center" style="margin: 24px;">
     <a href="https://docs.ismodular.com" target="_blank">
-    <img src="art/modular-github.png" alt="Modular Logo" style="width: 100%; max-width: 800px;"></a>
+    <img src="art/modular-blog-github.png" alt="Modular Blog" style="width: 100%; max-width: 800px;"></a>
 </p>
 
 <center>
@@ -49,51 +49,6 @@ php artisan modular:blog-install
 ```
 
 This command will publish the module's files required for the module to work, and also run the module's migrations and optionally seed the database with some default data.
-
-### Blog Seeders
-
-The Blog Module has two built in Seeders:
-
-1 - **BlogSeeder**: Will create `posts`, `authors`, `categories` and `tags`.
-
-2 - **BlogAclSeeder**: Will create the ACL Permissions associated with the module, so it can be associated with the desired `ACL Role` through the App Interface.
-
-You can manually run the seeders or you can add the seeders to be executed in the `database/seeders/DatabaseSeeder.php` file.
-
-#### Adding the seeders to the DatabaseSeeder file
-
-To add the seeders to the main DatabaseSeeder file, import the BlogSeeders and call them inside the `run` method:
-
-```php
-<?php
-
-namespace Database\Seeders;
-
-use Illuminate\Database\Seeder;
-use Modules\Blog\Database\Seeders\BlogAclSeeder;
-use Modules\Blog\Database\Seeders\BlogSeeder;
-
-public function run(): void
-{
-    $this->call(BlogAclSeeder::class);
-    $this->call(BlogSeeder::class);
-}
-
-```
-
-#### Manually executing the Seeders
-
-To manually execute the Seeders you can run:
-
-```bash
-php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogSeeder"
-```
-
-And also:
-
-```bash
-php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogAclSeeder"   
-```
 
 ### Check npm dependencies
 
@@ -162,6 +117,51 @@ Add the BlogServiceProvider to `/config/app.php`
 
 ```php
 Modules\Blog\BlogServiceProvider::class,
+```
+
+### Blog Seeders (Optional Step)
+
+The Blog Module has two built in Seeders:
+
+1 - **BlogSeeder**: Will create `posts`, `authors`, `categories` and `tags`.
+
+2 - **BlogAclSeeder**: Will create the ACL Permissions associated with the module, so it can be associated with the desired `ACL Role` through the App Interface.
+
+You can manually run the seeders or you can add the seeders to be executed in the `database/seeders/DatabaseSeeder.php` file.
+
+#### Adding the seeders to the DatabaseSeeder file
+
+To add the seeders to the main DatabaseSeeder file, import the BlogSeeders and call them inside the `run` method:
+
+```php
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Modules\Blog\Database\Seeders\BlogAclSeeder;
+use Modules\Blog\Database\Seeders\BlogSeeder;
+
+public function run(): void
+{
+    $this->call(BlogAclSeeder::class);
+    $this->call(BlogSeeder::class);
+}
+
+```
+
+#### Manually executing the Seeders
+
+To manually execute the Seeders you can run:
+
+```bash
+php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogSeeder"
+```
+
+And also:
+
+```bash
+php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogAclSeeder"   
 ```
 
 ### 2 - Backend Menu Items
