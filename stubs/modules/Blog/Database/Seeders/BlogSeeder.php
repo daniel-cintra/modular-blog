@@ -14,12 +14,7 @@ use function Laravel\Prompts\progress;
 
 class BlogSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
         Storage::deleteDirectory('public/blog');
 
