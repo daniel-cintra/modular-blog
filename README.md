@@ -32,7 +32,7 @@ Before installing the Modular Blog Module, you need to make sure that you have t
 
 With the Modular Project installed, follow the steps to [Publish Site Files](https://docs.ismodular.com/essentials/site-setup.html).
 
-Now that you can proceed to install the Modular Blog Module.
+Now that you have all set, proceed to install the Modular Blog Module.
 
 ## Installation
 
