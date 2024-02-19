@@ -1,6 +1,6 @@
 {
     "name": "daniel-cintra/modular-blog",
-    "description": "A Blog Modules for a Modular Application.",
+    "description": "A Blog Module for a Modular Application.",
     "authors": [
         {
             "name": "Daniel Cintra",
@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "daniel-cintra/modular": "^0.2.26",
+        "daniel-cintra/modular": "^0.2.28",
         "cviebrock/eloquent-sluggable": "^10.0"
     },
     "require-dev": {
