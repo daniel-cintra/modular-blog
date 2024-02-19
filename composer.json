@@ -1,6 +1,14 @@
 {
     "name": "daniel-cintra/modular-blog",
     "description": "A Blog Module for a Modular Application.",
+    "keywords": [
+        "modular",
+        "laravel",
+        "blog",
+        "blog module"
+    ],
+    "homepage": "https://docs.ismodular.com",
+    "license": "MIT",
     "authors": [
         {
             "name": "Daniel Cintra",
