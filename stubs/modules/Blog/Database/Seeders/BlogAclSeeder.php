@@ -7,6 +7,9 @@ use Spatie\Permission\Models\Permission;
 
 class BlogAclSeeder extends Seeder
 {
+    /**
+     * Seed the application's database.
+     */
     public function run(): void
     {
         $permissions = $this->getPermissions();
@@ -51,5 +54,4 @@ class BlogAclSeeder extends Seeder
         ];
 
     }
-
 }
