@@ -4,7 +4,7 @@ namespace Modular\Blog\Console;
 
 use Illuminate\Console\Command;
 use Modules\Blog\Database\Seeders\BlogSeeder;
-
+use Modules\Blog\Database\Seeders\BlogAclSeeder;
 class SeedCommand extends Command
 {
     protected $signature = 'modular:blog-seed';
@@ -13,9 +13,10 @@ class SeedCommand extends Command
 
     public function handle(): void
     {
-        $this->info('Running the following command to seed the Blog module:');
+        $this->info('Running the following commands to seed the Blog Module:');
 
         $this->call(BlogSeeder::class);
+        $this->call(BlogAclSeeder::class);
 
         $this->info('Modular Blog seeded successfully.');
     }
