@@ -15,7 +15,7 @@
 
 ## Modular's Blog Module
 
-The Modular Blog Module is a Blog Module for Applications built using the [Modular Project](https://docs.ismodular.com).
+The Modular Blog Module is a comprehensive solution for adding a blog to applications built with the [Modular Project](https://docs.ismodular.com).
 
 It has the following features:
 
@@ -24,13 +24,15 @@ It has the following features:
 -   Tags Management
 -   Authors Management
 
-This means that you can easily create posts using a Fully Featured WYSIWYG Editor, and manage them using a simple and intuitive interface to create, edit, and delete posts, categories, tags, and authors, also allowing you to manage the posts' status and visibility throught publication dates.
+This means that you can easily create posts using a Fully Featured WYSIWYG Editor, and manage them using a simple and intuitive interface to create, edit, and delete posts, categories, tags, and authors, also allowing you to manage the posts' status and visibility through publication dates.
 
 ## Preparing to install the Modular Blog Module
 
-Before installing the Modular Blog Module, you need to make sure that you have the Modular Project installed and configured in your Laravel Application. If you haven't done that yet, you can follow the [Modular Project's Installation Guide](https://docs.ismodular.com/getting-started.html).
+Before installing the Modular Blog Module, please ensure the following steps are completed:
 
-With the Modular Project installed, follow the steps to [Publish Site Files](https://docs.ismodular.com/essentials/site-setup.html).
+1. **Modular Project Installation**: Confirm that the Modular Project is installed and configured in your Laravel application. If this step is incomplete, please consult the [Modular Project's Installation Guide](https://docs.ismodular.com/getting-started.html) for assistance.
+
+2. **Site Files Publication**: With the Modular Project set up, proceed to [Publish Site Files](https://docs.ismodular.com/essentials/site-setup.html) as outlined in the documentation. This step is crucial for successfully integrating the Modular Blog Module.
 
 Now that you have all set, proceed to install the Modular Blog Module.
 
@@ -42,17 +44,21 @@ To install the Modular Blog Module, you need to require it using Composer:
 composer require daniel-cintra/modular-blog
 ```
 
-After that, you can run the module's installation command:
+Then, initiate the module installation:
 
 ```bash
 php artisan modular:blog-install
 ```
 
-This command will publish the module's files required for the module to work, and also run the module's migrations and optionally seed the database with some default data.
+This action publishes essential files and runs migrations, with an option to seed the database with default data.
+
+```bash
+php artisan storage:link
+```
 
 ### Check npm dependencies
 
-The Blog Module has a dependency on the Pinia npm package. If you don't have it installed, follow these steps:
+The Blog Module has a dependency on the [Pinia Store](https://pinia.vuejs.org/) npm package. If you don't have it installed in your project, follow these steps:
 
 1 - On your project root run:
 
@@ -60,63 +66,35 @@ The Blog Module has a dependency on the Pinia npm package. If you don't have it 
 npm install -D pinia
 ```
 
-2 - Open the file `resources/js/app.js` and add the pinia `import { createPinia } from 'pinia'` and the `.use(createPinia())` blocks.
+2 - Open the file `resources/js/app.js` and add the Pinia `import { createPinia } from 'pinia'` and the `.use(createPinia())` blocks.
 
 ```js
-import '../css/app.css'
-import 'remixicon/fonts/remixicon.css'
-
-import { createApp, h } from 'vue'
+...
 import { createPinia } from 'pinia'
-import { createInertiaApp } from '@inertiajs/vue3'
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
-
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
-
-// global components
-import { Link } from '@inertiajs/vue3'
-import Layout from './Layouts/AuthenticatedLayout.vue'
-
-import Translations from '@/Plugins/Translations'
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
-    resolve: (name) => {
-        const page = resolvePageComponent(
-            `./Pages/${name}.vue`,
-            import.meta.glob('./Pages/**/*.vue')
-        )
-
-        page.then((module) => {
-            module.default.layout = module.default.layout || Layout
-        })
-
-        return page
-    },
+    ...
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
             .use(createPinia())
             .use(plugin)
-            .use(ZiggyVue, Ziggy)
-            .use(Translations)
-            .component('Link', Link)
-            .mount(el)
-    },
-    progress: {
-        color: '#3e63dd'
+            ...
     }
 })
 ```
 
-Here are the manual configuration needed to finish the Blog Installation:
+## Final Configuration Steps
 
 ### 1 - BlogServiceProvider
 
 Add the BlogServiceProvider to `/config/app.php`
 
 ```php
-Modules\Blog\BlogServiceProvider::class,
+    'providers' => ServiceProvider::defaultProviders()->merge([
+        ...
+        Modules\Blog\BlogServiceProvider::class,
+
+    ])->toArray(),
 ```
 
 ### 2 - Backend Menu Items
@@ -166,7 +144,7 @@ export default {
 
 ### 3 - Frontend
 
-In `vite.config.js` manually add the module entry to:
+In `vite.config.js` manually add the `resources-site/js/blog-app.js` entry to the laravel plugin `input` array:
 
 ```js
 plugins: [
@@ -182,21 +160,46 @@ plugins: [
 ],
 ```
 
-That's it. The Blog Module should be fully functional at this stage.
+With the installation steps completed as outlined, the Blog Module should now be fully operational within your application. This marks the completion of the setup process, enabling you to start using the module's features for managing and publishing blog content.
+
+### Compiling the assets
+
+To view the changes on your project run:
+
+```bash
+npm run dev
+```
+
+#### Blog CMS
+
+To access the Blog Module's CMS (Content Management System), login in to the Modular CMS using the configured path in your `config/modular.php` file in the `login-url` key (for example `/admin`). The Blog Management links will be listed in the sidebar menu.
+
+<img src="art/modular-blog-cms.jpg" alt="Modular Blog Index" style="width: 100%;">
+
+#### Blog Site View 
+
+By default, you can access the blog posts controller in the `/blog` route registered by the module.
+
+<img src="art/modular-blog-index.jpg" alt="Modular Blog Index" style="width: 100%;">
 
 ### Blog Seeders (Optional Step)
 
-The Blog Module has two built in Seeders:
+The Blog Module includes two built-in seeders:
 
-1 - **BlogSeeder**: Will create `posts`, `authors`, `categories` and `tags`. It will fetch images online to populate `posts`, `authors` and `categories`, so it can take a few seconds to complete.  
+1. **BlogSeeder**: This seeder populates your database with `posts`, `authors`, `categories`, and `tags`. It also fetches images online to enrich `posts`, `authors`, and `categories`. Since it retrieves images from the internet, the seeding process may take a few seconds. A progress bar indicator is included within the Seeder, allowing you to monitor the progress of the operation.
 
-2 - **BlogAclSeeder**: Will create the ACL Permissions associated with the module, so it can be associated with the desired `ACL Role` through the App Interface.
+2. **BlogAclSeeder**: This seeder creates the Access Control List (ACL) Permissions related to the Blog Module. These permissions can then be associated with the desired `ACL Role` through the application's interface, facilitating the management of user permissions within the blog module.
 
-You can manually run the seeders or you can add the seeders to be executed in the `database/seeders/DatabaseSeeder.php` file.
+You have the option to manually run the seeders or include them in the `database/seeders/DatabaseSeeder.php` file for automatic execution. This flexibility allows you to tailor the seeding process to your application's needs, ensuring that the Blog Module is populated with initial data or configured with the necessary ACL permissions as part of your project's overall database seeding strategy.
 
-#### Adding the seeders to the DatabaseSeeder file
+#### Adding the Seeders to the DatabaseSeeder File
 
-To add the seeders to the main DatabaseSeeder file, import the BlogSeeders and call them inside the `run` method:
+To integrate the seeders with your application's seeding process, add them to the `DatabaseSeeder.php` file located in `database/seeders`. Here's how to do it:
+
+1. Import the `BlogSeeder` and `BlogAclSeeder` at the top of your `DatabaseSeeder.php` file.
+2. Inside the `run` method of your `DatabaseSeeder`, invoke the seeders by calling their respective `run` methods.
+
+This setup ensures that when you run the database seeding command, both the BlogSeeder and BlogAclSeeder are executed, populating your database with initial blog data and setting up ACL permissions accordingly.
 
 ```php
 <?php
@@ -212,23 +215,24 @@ public function run(): void
     $this->call(BlogAclSeeder::class);
     $this->call(BlogSeeder::class);
 }
-
 ```
 
 #### Manually executing the Seeders
 
-To manually execute the Seeders you can run:
+To manually run the seeders, execute the following commands in your terminal:
+
+For the `BlogSeeder`:
 
 ```bash
 php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogSeeder"
 ```
 
-And also:
+And for the `BlogAclSeeder`:
 
 ```bash
 php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogAclSeeder"   
 ```
-
+These commands allow you to selectively seed your database with the blog module's content and ACL permissions, offering a more controlled setup process.
 
 ## License
 

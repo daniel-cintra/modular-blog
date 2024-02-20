@@ -18,6 +18,8 @@ class InstallCommand extends Command
         $this->copyResourcesSiteFiles();
         $this->copyResourcesComponentsFiles();
 
+        $this->call('storage:link');
+
         $this->info('Modular Blog installed successfully.');
         $this->info('Running the following command to migrate the Blog module:');
 
