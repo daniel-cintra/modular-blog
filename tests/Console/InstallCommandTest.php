@@ -7,17 +7,18 @@ afterEach(function () {
     (new Filesystem)->deleteDirectory(resource_path('js'));
     (new Filesystem)->deleteDirectory(base_path('resources-site'));
     (new Filesystem)->deleteDirectory(base_path('database/seeders'));
+    (new Filesystem)->deleteDirectory(base_path('lang/en'));
 });
 
 it('can run modular-blog:install command', function () {
     $this->artisan('modular:blog-install')
-        ->expectsConfirmation('Do you wish to run the Blog migrations?', 'no')
+        ->expectsConfirmation('Do you wish to run the Blog Seeders?', 'no')
         ->assertSuccessful();
 });
 
 it('can copy the Blog directories and files', function () {
     $this->artisan('modular:blog-install')
-        ->expectsConfirmation('Do you wish to run the Blog migrations?', 'no')
+        ->expectsConfirmation('Do you wish to run the Blog Seeders?', 'no')
         ->assertExitCode(0);
 
     // modules/Blog
@@ -37,6 +38,8 @@ it('can copy the Blog directories and files', function () {
 
     $this->assertFileExists(base_path('modules/Blog/Http/Controllers/PostController.php'));
     $this->assertFileExists(base_path('modules/Blog/Models/Post.php'));
+
+    $this->assertFileExists(base_path('lang/en/pagination.php'));
 
     // resources/js/Pages
     $this->assertDirectoryExists(resource_path('js/Pages/BlogAuthor'));
