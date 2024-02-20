@@ -182,7 +182,7 @@ plugins: [
 ],
 ```
 
-That's it, the Blog Module should be all functional in this step.
+That's it. The Blog Module should be fully functional at this stage.
 
 ### Blog Seeders (Optional Step)
 
