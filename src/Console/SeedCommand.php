@@ -3,8 +3,9 @@
 namespace Modular\Blog\Console;
 
 use Illuminate\Console\Command;
-use Modules\Blog\Database\Seeders\BlogSeeder;
 use Modules\Blog\Database\Seeders\BlogAclSeeder;
+use Modules\Blog\Database\Seeders\BlogSeeder;
+
 class SeedCommand extends Command
 {
     protected $signature = 'modular:blog-seed';
