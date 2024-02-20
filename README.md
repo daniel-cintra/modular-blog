@@ -17,20 +17,24 @@
 
 The Modular Blog Module is a comprehensive solution for adding a blog to applications built with the [Modular Project](https://docs.ismodular.com).
 
-The **Blog Module's CMS** (Content Management System) has the following features:
+The **Blog Module's CMS** (Content Management System) side, has the following features:
 
 -   Posts Management
 -   Categories Management
 -   Tags Management
 -   Authors Management
 
+<img src="art/modular-blog-cms.jpg" alt="Modular Blog Index" style="width: 100%;">
+
 You can easily create posts using a Fully Featured WYSIWYG Editor, and manage them using a simple and intuitive interface to create, edit, and delete posts, categories, tags, and authors, also allowing you to manage the posts' status and visibility through publication dates.
 
-The **Blog Module Frontend Site** offers the following features:
+The **Blog Module Public Views** offers the following features:
 
 - **Archive Selector:** Automatically groups posts by month and year, allowing users to filter posts by specific periods.
 - **Tag Selector:** Enables filtering of posts by specific tags. By default, only tags with associated posts are displayed.
 - **Search Posts:** Incorporates a simple search feature within the module.
+
+<img src="art/modular-blog-index.jpg" alt="Modular Blog Index" style="width: 100%;">
 
 Designed as a lightweight yet robust foundation, the Modular Blog Module provides **flexibility for customization and feature expansion** (such as post comments and ratings). This makes it a versatile tool for developers aiming to integrate comprehensive blog functionalities into their applications, catering to a wide array of requirements.
 
@@ -182,13 +186,9 @@ npm run dev
 
 To access the Blog Module's CMS (Content Management System), login in to the Modular CMS using the configured path in your `config/modular.php` file in the `login-url` key (for example `/admin`). The Blog Management links will be listed in the sidebar menu.
 
-<img src="art/modular-blog-cms.jpg" alt="Modular Blog Index" style="width: 100%;">
-
 #### Blog Site View 
 
 By default, you can access the blog posts controller in the `/blog` route registered by the module.
-
-<img src="art/modular-blog-index.jpg" alt="Modular Blog Index" style="width: 100%;">
 
 ### Blog Seeders (Optional Step)
 
