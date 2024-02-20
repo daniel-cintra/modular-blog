@@ -64,10 +64,6 @@ php artisan modular:blog-install
 
 This action publishes essential files and runs migrations, with an option to seed the database with default data.
 
-```bash
-php artisan storage:link
-```
-
 ### Check npm dependencies
 
 The Blog Module has a dependency on the [Pinia Store](https://pinia.vuejs.org/) npm package. If you don't have it installed in your project, follow these steps:
