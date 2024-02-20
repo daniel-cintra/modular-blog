@@ -17,14 +17,22 @@
 
 The Modular Blog Module is a comprehensive solution for adding a blog to applications built with the [Modular Project](https://docs.ismodular.com).
 
-It has the following features:
+The **Blog Module's CMS** (Content Management System) has the following features:
 
 -   Posts Management
 -   Categories Management
 -   Tags Management
 -   Authors Management
 
-This means that you can easily create posts using a Fully Featured WYSIWYG Editor, and manage them using a simple and intuitive interface to create, edit, and delete posts, categories, tags, and authors, also allowing you to manage the posts' status and visibility through publication dates.
+You can easily create posts using a Fully Featured WYSIWYG Editor, and manage them using a simple and intuitive interface to create, edit, and delete posts, categories, tags, and authors, also allowing you to manage the posts' status and visibility through publication dates.
+
+The **Blog Module Frontend Site** offers the following features:
+
+- **Archive Selector:** Automatically groups posts by month and year, allowing users to filter posts by specific periods.
+- **Tag Selector:** Enables filtering of posts by specific tags. By default, only tags with associated posts are displayed.
+- **Search Posts:** Incorporates a simple search feature within the module.
+
+Designed as a lightweight yet robust foundation, the Modular Blog Module provides **flexibility for customization and feature expansion** (such as post comments and ratings). This makes it a versatile tool for developers aiming to integrate comprehensive blog functionalities into their applications, catering to a wide array of requirements.
 
 ## Preparing to install the Modular Blog Module
 
