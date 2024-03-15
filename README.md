@@ -7,7 +7,7 @@
 
 [![Vue v3.x](https://img.shields.io/badge/Vue.js-v3.x-2f4053?style=for-the-badge&logo=vue.js&logoColor=39af78)](https://vuejs.org/)
 [![Inertia.js v1.x](https://img.shields.io/badge/Inertia.js-v1.x-6765ea?style=for-the-badge&logo=inertia&logoColor=ffffff)](https://inertiajs.com/)
-[![Laravel v10.x](https://img.shields.io/badge/Laravel-v10.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![Laravel v11.x](https://img.shields.io/badge/Laravel-v11.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
 [![Tailwind CSS v3.x](https://img.shields.io/badge/Tailwind%20CSS-v3.x-31b5f7?style=for-the-badge&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
 [![Tests passing](https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github)](https://github.com/daniel-cintra/modular-blog/actions)
 
@@ -30,9 +30,9 @@ You can easily create posts using a Fully Featured WYSIWYG Editor, and manage th
 
 The **Blog Module Public Views** offers the following features:
 
-- **Archive Selector:** Automatically groups posts by month and year, allowing users to filter posts by specific periods.
-- **Tag Selector:** Enables filtering of posts by specific tags. By default, only tags with associated posts are displayed.
-- **Search Posts:** Incorporates a simple search feature within the module.
+-   **Archive Selector:** Automatically groups posts by month and year, allowing users to filter posts by specific periods.
+-   **Tag Selector:** Enables filtering of posts by specific tags. By default, only tags with associated posts are displayed.
+-   **Search Posts:** Incorporates a simple search feature within the module.
 
 <img src="art/modular-blog-index.jpg" alt="Modular Blog Index" style="width: 100%;">
 
@@ -182,7 +182,7 @@ npm run dev
 
 To access the Blog Module's CMS (Content Management System), login in to the Modular CMS using the configured path in your `config/modular.php` file in the `login-url` key (for example `/admin`). The Blog Management links will be listed in the sidebar menu.
 
-#### Blog Site View 
+#### Blog Site View
 
 By default, you can access the blog posts controller in the `/blog` route registered by the module.
 
@@ -234,8 +234,9 @@ php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogSeeder"
 And for the `BlogAclSeeder`:
 
 ```bash
-php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogAclSeeder"   
+php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogAclSeeder"
 ```
+
 These commands allow you to selectively seed your database with the blog module's content and ACL permissions, offering a more controlled setup process.
 
 ## License
