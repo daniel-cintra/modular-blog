@@ -95,14 +95,13 @@ createInertiaApp({
 
 ### 1 - BlogServiceProvider
 
-Add the BlogServiceProvider to `/config/app.php`
+Add the `BlogServiceProvider` to rhw Providers Array in `/bootstrap/providers.php`
 
 ```php
-    'providers' => ServiceProvider::defaultProviders()->merge([
-        ...
-        Modules\Blog\BlogServiceProvider::class,
-
-    ])->toArray(),
+return [
+    ...
+    Modules\Blog\BlogServiceProvider::class,
+];
 ```
 
 ### 2 - Backend Menu Items
