@@ -95,7 +95,7 @@ createInertiaApp({
 
 ### 1 - BlogServiceProvider
 
-Add the `BlogServiceProvider` to rhw Providers Array in `/bootstrap/providers.php`
+Add the `BlogServiceProvider` to the Providers Array in `/bootstrap/providers.php`
 
 ```php
 return [
