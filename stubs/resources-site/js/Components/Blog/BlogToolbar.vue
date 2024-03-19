@@ -15,7 +15,7 @@ import ArchiveSelector from './ArchiveSelector.vue'
 import TagSelector from './TagSelector.vue'
 import SearchInput from './SearchInput.vue'
 
-const props = defineProps({
+defineProps({
     tags: {
         type: Array,
         default: () => []
