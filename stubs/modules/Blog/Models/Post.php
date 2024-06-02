@@ -63,4 +63,9 @@ class Post extends BaseModel
     {
         return BlogPostFactory::new();
     }
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'blog_author_id');
+    }
 }
