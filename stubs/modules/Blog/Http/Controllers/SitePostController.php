@@ -13,7 +13,7 @@ class SitePostController extends SiteController
 {
     public function index(GetArchiveOptions $getArchiveOptions, GetTagOptions $getTagOptions): View
     {
-        $posts = Post::with('tags')
+        $posts = Post::with('tags', 'author')
             ->where('published_at', '<=', Carbon::now())
             ->latest()
             ->paginate(6);
@@ -26,7 +26,7 @@ class SitePostController extends SiteController
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::with('author')->where('slug', $slug)->first();
 
         return view('blog::post-show', compact('post'));
     }
