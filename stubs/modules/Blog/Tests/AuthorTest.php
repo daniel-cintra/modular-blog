@@ -22,7 +22,7 @@ beforeEach(function () {
 
 afterEach(function () {
     if ($this->author->image) {
-        Storage::disk('public')->delete('blog/' . $this->author->image);
+        Storage::disk('public')->delete('blog/'.$this->author->image);
     }
 });
 
@@ -76,7 +76,7 @@ test('author can be created', function () {
 });
 
 test('author edit page can be rendered', function () {
-    $response = $this->loggedRequest->get('/admin/blog-author/' . $this->author->id . '/edit');
+    $response = $this->loggedRequest->get('/admin/blog-author/'.$this->author->id.'/edit');
 
     $response->assertStatus(200);
 
@@ -99,7 +99,7 @@ test('author edit page can be rendered', function () {
 });
 
 test('author can be updated', function () {
-    $response = $this->loggedRequest->put('/admin/blog-author/' . $this->author->id, [
+    $response = $this->loggedRequest->put('/admin/blog-author/'.$this->author->id, [
         'name' => 'New Name',
         'email' => 'new@email.com',
     ]);
@@ -125,7 +125,7 @@ test('author can be updated', function () {
 });
 
 test('author can be deleted', function () {
-    $response = $this->loggedRequest->delete('/admin/blog-author/' . $this->user->id);
+    $response = $this->loggedRequest->delete('/admin/blog-author/'.$this->user->id);
 
     $response->assertRedirect('/admin/blog-author');
 
