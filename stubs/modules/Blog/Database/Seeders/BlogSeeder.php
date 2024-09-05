@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Storage;
 use Modules\Blog\Models\Author;
 use Modules\Blog\Models\Category;
 use Modules\Blog\Models\Post;
+
 use function Laravel\Prompts\info;
 
 class BlogSeeder extends Seeder
 {
-
     //These images are available at: resources/images/blog . Just copy them to storage/app/public/blog as mentioned in the README.md
 
     private $blogCategoriesImages = [
@@ -82,19 +82,19 @@ class BlogSeeder extends Seeder
 
         info('Creating blog categories...');
         Category::factory()->count(12)
-            ->sequence(fn(Sequence $sequence) => ['image' => $this->blogCategoriesImages[$sequence->index]])
+            ->sequence(fn (Sequence $sequence) => ['image' => $this->blogCategoriesImages[$sequence->index]])
             ->create();
         info('Blog categories created.');
 
         info('Creating blog authors...');
         Author::factory()->count(12)
-            ->sequence(fn(Sequence $sequence) => ['image' => $this->blogAuthorsImages[$sequence->index]])
+            ->sequence(fn (Sequence $sequence) => ['image' => $this->blogAuthorsImages[$sequence->index]])
             ->create();
         info('Blog authors created.');
 
         info('Creating blog posts...');
         Post::factory()->count(24)
-            ->sequence(fn(Sequence $sequence) => ['image' => $this->blogPostsImages[$sequence->index]])
+            ->sequence(fn (Sequence $sequence) => ['image' => $this->blogPostsImages[$sequence->index]])
             ->create();
         info('Blog posts created.');
 
