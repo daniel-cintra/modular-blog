@@ -22,7 +22,7 @@ class InstallCommand extends Command
         $this->copyResourcesComponentsFiles();
         $this->copyTranslationFile();
 
-        if (!is_link(public_path('storage'))) {
+        if (! is_link(public_path('storage'))) {
             $this->call('storage:link');
         }
 
@@ -47,7 +47,7 @@ class InstallCommand extends Command
     {
         $this->info('Copying Blog Module directory...');
         (new Filesystem)->ensureDirectoryExists(base_path('modules'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/modules/Blog', base_path('modules/Blog'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/modules/Blog', base_path('modules/Blog'));
         $this->info('Blog Module directory copied successfully.');
     }
 
@@ -55,7 +55,7 @@ class InstallCommand extends Command
     {
         $this->info('Copying Blog Module components...');
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Components/Modules/Blog'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/Components/Modules/Blog', resource_path('js/Components/Modules/Blog'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/Components/Modules/Blog', resource_path('js/Components/Modules/Blog'));
         $this->info('Blog Module components copied successfully.');
     }
 
@@ -63,7 +63,7 @@ class InstallCommand extends Command
     {
         $this->info('Copying Blog Seeder images...');
         (new Filesystem)->ensureDirectoryExists(resource_path('images/blog'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/images/blog', resource_path('images/blog'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/images/blog', resource_path('images/blog'));
         $this->info('Blog Module Seeder images copied successfully.');
     }
 
@@ -71,7 +71,7 @@ class InstallCommand extends Command
     {
         $this->info('Copying Blog Module resources...');
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/Pages', resource_path('js/Pages'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/Pages', resource_path('js/Pages'));
         $this->info('Blog Module resources copied successfully.');
     }
 
@@ -79,7 +79,7 @@ class InstallCommand extends Command
     {
         $this->info('Copying Blog Module resources-site...');
         (new Filesystem)->ensureDirectoryExists(base_path('resources-site'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources-site', base_path('resources-site'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources-site', base_path('resources-site'));
         $this->info('Blog Module resources-site copied successfully.');
     }
 
@@ -89,7 +89,7 @@ class InstallCommand extends Command
 
         if (! file_exists($paginationEnglish)) {
             (new Filesystem)->ensureDirectoryExists(base_path('lang/en'));
-            copy(__DIR__ . '/../../stubs/lang/en/pagination.php', base_path('lang/en/pagination.php'));
+            copy(__DIR__.'/../../stubs/lang/en/pagination.php', base_path('lang/en/pagination.php'));
         }
     }
 }
