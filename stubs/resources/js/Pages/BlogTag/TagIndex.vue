@@ -68,6 +68,9 @@
 
     <AppPaginator
         :links="tags.links"
+        :from="tags.from || 0"
+        :to="tags.to || 0"
+        :total="tags.total || 0"
         class="mt-4 justify-center"
     ></AppPaginator>
 

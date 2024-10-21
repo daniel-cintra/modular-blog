@@ -90,6 +90,9 @@
 
     <AppPaginator
         :links="authors.links"
+        :from="authors.from || 0"
+        :to="authors.to || 0"
+        :total="authors.total || 0"
         class="mt-4 justify-center"
     ></AppPaginator>
 

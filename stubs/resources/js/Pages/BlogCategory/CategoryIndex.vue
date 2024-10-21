@@ -87,6 +87,9 @@
 
     <AppPaginator
         :links="categories.links"
+        :from="categories.from || 0"
+        :to="categories.to || 0"
+        :total="categories.total || 0"
         class="mt-4 justify-center"
     ></AppPaginator>
 
