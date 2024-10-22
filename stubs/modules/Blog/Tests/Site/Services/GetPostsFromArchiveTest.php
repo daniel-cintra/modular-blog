@@ -24,7 +24,7 @@ test('get method returns posts from archive', function () {
         ->paginate(6);
 
     // Act
-    $service = new GetPostsFromArchive();
+    $service = new GetPostsFromArchive;
     $posts = $service->get($archiveDate);
 
     // Assert

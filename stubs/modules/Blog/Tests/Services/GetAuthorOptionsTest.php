@@ -12,7 +12,7 @@ it('returns an array of author options', function () {
     // Arrange
     $author1 = Author::factory()->create(['name' => 'Alanis', 'email' => 'test22@test.com']);
     $author2 = Author::factory()->create(['name' => 'Beatrice', 'email' => 'test23@test.com']);
-    $getAuthorOptions = new GetAuthorOptions();
+    $getAuthorOptions = new GetAuthorOptions;
 
     // Act
     $options = $getAuthorOptions->get();

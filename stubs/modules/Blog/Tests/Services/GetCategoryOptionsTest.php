@@ -12,7 +12,7 @@ it('returns an array of category options', function () {
     // Arrange
     $category1 = Category::factory()->create(['name' => 'Category 1']);
     $category2 = Category::factory()->create(['name' => 'Category 2']);
-    $getCategoryOptions = new GetCategoryOptions();
+    $getCategoryOptions = new GetCategoryOptions;
 
     // Act
     $options = $getCategoryOptions->get();

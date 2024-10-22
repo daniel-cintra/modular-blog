@@ -18,7 +18,7 @@ test('it returns an array of tag options', function () {
     ]);
 
     // Call the get method
-    $tagOptions = (new GetTagOptions())->get();
+    $tagOptions = (new GetTagOptions)->get();
 
     // Assert that the tag options array is not empty
     $this->assertNotEmpty($tagOptions);
@@ -30,7 +30,7 @@ test('it returns an array of tag options', function () {
 
 test('it returns a default tag option when no tags are found', function () {
     // Create an instance of GetTagOptions
-    $getTagOptions = new GetTagOptions();
+    $getTagOptions = new GetTagOptions;
 
     // Call the get method
     $tagOptions = $getTagOptions->get();

@@ -15,7 +15,7 @@ test('get tag options', function () {
     $tag3 = Tag::factory()->create(['name' => 'Tag 3']);
 
     // Instantiate the GetTagOptions service
-    $service = new GetTagOptions();
+    $service = new GetTagOptions;
 
     // Call the get method
     $options = $service->get();

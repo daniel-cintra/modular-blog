@@ -19,7 +19,7 @@ test('sync method syncs tags with the post', function () {
     ];
 
     // Act
-    (new SyncPostTags())->sync($post, $tags);
+    (new SyncPostTags)->sync($post, $tags);
 
     // Assert
     $this->assertCount(2, $post->tags);
@@ -41,7 +41,7 @@ test('sync method detaches and syncs tags with the post', function () {
     ];
 
     // Act
-    (new SyncPostTags())->sync($post, $tags);
+    (new SyncPostTags)->sync($post, $tags);
 
     // Assert
     $this->assertCount(2, $post->tags);
@@ -57,10 +57,10 @@ test('sync method detaches all tags when no tags are provided', function () {
     $tags = [
         ['id' => $tag1->id],
     ];
-    (new SyncPostTags())->sync($post, $tags);
+    (new SyncPostTags)->sync($post, $tags);
 
     // Act
-    (new SyncPostTags())->sync($post, []);
+    (new SyncPostTags)->sync($post, []);
 
     // Assert
     $this->assertCount(0, $post->tags);

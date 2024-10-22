@@ -20,7 +20,7 @@ test('get method returns archive options', function () {
     ];
 
     // Act
-    $options = (new GetArchiveOptions())->get();
+    $options = (new GetArchiveOptions)->get();
 
     // Assert
     $this->assertCount(3, $options);
@@ -29,7 +29,7 @@ test('get method returns archive options', function () {
 
 test('get method returns "No posts found" when no posts are available', function () {
     // Act
-    $options = (new GetArchiveOptions())->get();
+    $options = (new GetArchiveOptions)->get();
 
     // Assert
     $this->assertCount(1, $options);
