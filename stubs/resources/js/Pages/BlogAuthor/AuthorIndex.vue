@@ -108,7 +108,7 @@ import { ref } from 'vue'
 import useAuthCan from '@/Composables/useAuthCan'
 import AppImageNotAvailable from '@/Components/Modules/Blog/AppImageNotAvailable.vue'
 
-const props = defineProps({
+defineProps({
     authors: {
         type: Object,
         default: () => {}

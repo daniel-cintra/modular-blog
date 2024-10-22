@@ -28,9 +28,10 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { usePostStore } from '../PostStore'
+
 const postStore = usePostStore()
 
-const props = defineProps({
+defineProps({
     tags: {
         type: Object,
         default: () => {}

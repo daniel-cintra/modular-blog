@@ -105,7 +105,7 @@ import { ref } from 'vue'
 import useAuthCan from '@/Composables/useAuthCan'
 import AppImageNotAvailable from '@/Components/Modules/Blog/AppImageNotAvailable.vue'
 
-const props = defineProps({
+defineProps({
     posts: {
         type: Object,
         default: () => {}
@@ -133,10 +133,10 @@ const { can } = useAuthCan()
 
 <style scoped>
 .published {
-    @apply bg-skin-success-light  text-skin-success;
+    @apply bg-skin-success-light text-skin-success;
 }
 
 .draft {
-    @apply bg-skin-warning-light  text-skin-warning;
+    @apply bg-skin-warning-light text-skin-warning;
 }
 </style>

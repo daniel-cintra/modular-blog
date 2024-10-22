@@ -105,7 +105,7 @@ import { ref } from 'vue'
 import useAuthCan from '@/Composables/useAuthCan'
 import AppImageNotAvailable from '@/Components/Modules/Blog/AppImageNotAvailable.vue'
 
-const props = defineProps({
+defineProps({
     categories: {
         type: Object,
         default: () => {}
@@ -133,10 +133,10 @@ const { can } = useAuthCan()
 
 <style scoped>
 .category-visible {
-    @apply bg-skin-success-light  text-skin-success;
+    @apply bg-skin-success-light text-skin-success;
 }
 
 .category-invisible {
-    @apply bg-skin-warning-light  text-skin-warning;
+    @apply bg-skin-warning-light text-skin-warning;
 }
 </style>

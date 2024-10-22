@@ -83,7 +83,7 @@
 import { ref } from 'vue'
 import useAuthCan from '@/Composables/useAuthCan'
 
-const props = defineProps({
+defineProps({
     tags: {
         type: Object,
         default: () => {}
