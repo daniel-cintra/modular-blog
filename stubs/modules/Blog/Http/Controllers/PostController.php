@@ -18,7 +18,7 @@ class PostController extends BackendController
 {
     use EditorImage, UploadFile;
 
-    protected string $uploadImagePath = 'storage/app/public/blog';
+    protected string $uploadImagePath = 'blog';
 
     public function index(): Response
     {
@@ -26,7 +26,7 @@ class PostController extends BackendController
             ->search(request('searchContext'), request('searchTerm'))
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(fn ($post) => [
+            ->through(fn($post) => [
                 'id' => $post->id,
                 'image_url' => $post->image_url,
                 'title' => $post->title,
