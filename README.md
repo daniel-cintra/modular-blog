@@ -238,6 +238,26 @@ php artisan db:seed --class="Modules\\Blog\\Database\\Seeders\\BlogAclSeeder"
 
 These commands allow you to selectively seed your database with the blog module's content and ACL permissions, offering a more controlled setup process.
 
+## Post Slugs
+
+The Post Module uses slugs to identify posts (in the URL). When **creating a new post**, the slug is automatically generated based on the post's title. Updating the post's title will not update the slug by default (preventing broken links, and SEO problems). If you want to change the default behaviour automatically updating the slug when the post's title is updated, follow these steps:
+
+1. Publish the `cviebrock/eloquent-sluggable` configuration file:
+
+```bash
+php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
+```
+
+2. Open the `config/eloquent-sluggable.php` file and change the `onUpdate` option to `true`:
+
+```php
+return [
+    ...
+    'onUpdate' => true,
+    ...
+];
+```
+
 ## License
 
 The Modular Project is open-source software licensed under the [MIT license](LICENSE.md).
