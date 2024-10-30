@@ -169,12 +169,18 @@ plugins: [
 
 With the installation steps completed as outlined, the Blog Module should now be fully operational within your application. This marks the completion of the setup process, enabling you to start using the module's features for managing and publishing blog content.
 
+The Blog Module also includes a custom CSS file for styling the content of the blog posts. This file is located in `resources-site/css/blog.css`. To import this file in your project, add the following line to your main `resources-site/css/site.css` file (after the Tailwind CSS imports):
+
+```css
+@import './blog.css';
+```
+
 ### Compiling the assets
 
 To view the changes on your project run:
 
 ```bash
-npm run dev
+npm run build
 ```
 
 #### Blog CMS
