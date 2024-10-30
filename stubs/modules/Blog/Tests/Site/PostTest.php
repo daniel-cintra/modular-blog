@@ -17,7 +17,7 @@ beforeEach(function () {
 
 afterEach(function () {
     if ($this->post->image) {
-        Storage::disk('public')->delete('blog/' . $this->post->image);
+        Storage::disk('public')->delete('blog/'.$this->post->image);
     }
 });
 
@@ -32,7 +32,7 @@ test('blog index page can be rendered', function () {
 
 test('blog post page can be rendered', function () {
     $this->withoutVite();
-    $response = $this->get('/blog/' . $this->post->slug);
+    $response = $this->get('/blog/'.$this->post->slug);
 
     $response->assertStatus(200);
     $response->assertSee($this->post->title);
