@@ -248,7 +248,7 @@ The Post Module uses slugs to identify posts (in the URL). When **creating a new
 php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
 ```
 
-2. Open the `config/eloquent-sluggable.php` file and change the `onUpdate` option to `true`:
+2. Open the `config/sluggable.php` file and change the `onUpdate` option to `true`:
 
 ```php
 return [
