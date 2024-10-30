@@ -1,5 +1,5 @@
 <p align="center" style="margin: 24px;">
-    <a href="https://docs.ismodular.com" target="_blank">
+    <a href="https://ismodular.com" target="_blank">
     <img src="art/modular-blog-github.png" alt="Modular Blog" style="width: 100%; max-width: 800px;"></a>
 </p>
 
@@ -15,7 +15,7 @@
 
 ## Modular's Blog Module
 
-The Modular Blog Module is a comprehensive solution for adding a blog to applications built with the [Modular Project](https://docs.ismodular.com).
+The Modular Blog Module is a comprehensive solution for adding a blog to applications built with the [Modular Project](https://ismodular.com).
 
 The **Blog Module's CMS** (Content Management System) side, has the following features:
 
