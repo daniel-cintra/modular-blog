@@ -67,4 +67,7 @@ it('can copy the Blog directories and files', function () {
     $this->assertFileExists(base_path('resources-site/js/Components/Blog/BlogToolbar.vue'));
     $this->assertFileExists(base_path('resources-site/js/Components/Blog/SearchInput.vue'));
     $this->assertFileExists(base_path('resources-site/js/Components/Blog/TagSelector.vue'));
+
+    // resources-site/css
+    $this->assertFileExists(base_path('resources-site/css/blog.css'));
 });
