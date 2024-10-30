@@ -15,7 +15,7 @@
 @section('content')
     <blog-toolbar :archive-options="{{ json_encode($archiveOptions) }}" :tags="{{ json_encode($tags) }}"></blog-toolbar>
 
-    <div class="bg-skin-neutral-2 py-24 sm:py-32">
+    <div class="py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <!-- Section Title -->
             <div class="mx-auto max-w-2xl text-center">
@@ -99,7 +99,7 @@
                                             <span class="absolute inset-0"></span>
                                             {{ $post->title }}
                                         </h3>
-                                        <div class="line-clamp-3 text-sm leading-6">
+                                        <div class="line-clamp-3 min-h-20 text-sm leading-6">
                                             {!! $post->summary !!}
                                         </div>
                                     </div>
