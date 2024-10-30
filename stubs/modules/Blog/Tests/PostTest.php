@@ -22,7 +22,7 @@ beforeEach(function () {
 
 afterEach(function () {
     if ($this->post->image) {
-        Storage::disk('public')->delete('blog/'.$this->post->image);
+        Storage::disk('public')->delete('blog/' . $this->post->image);
     }
 });
 
@@ -32,12 +32,12 @@ test('post list can be rendered', function () {
     $response->assertStatus(200);
 
     $response->assertInertia(
-        fn (Assert $page) => $page
+        fn(Assert $page) => $page
             ->component('BlogPost/PostIndex')
             ->has(
                 'posts.data',
                 1,
-                fn (Assert $page) => $page
+                fn(Assert $page) => $page
                     ->where('id', $this->post->id)
                     ->where('image_url', $this->post->image_url)
                     ->where('title', $this->post->title)
@@ -52,7 +52,7 @@ test('post create page can be rendered', function () {
     $response->assertStatus(200);
 
     $response->assertInertia(
-        fn (Assert $page) => $page
+        fn(Assert $page) => $page
             ->component('BlogPost/PostForm')
     );
 });
@@ -62,6 +62,7 @@ test('post can be created', function () {
         'blog_author_id' => null,
         'blog_category_id' => null,
         'title' => 'Post Title',
+        'summary' => 'Post Summary',
         'content' => 'Post Content',
         'image' => null,
         'meta_tag_title' => 'Post Title Tag',
@@ -77,21 +78,22 @@ test('post can be created', function () {
 });
 
 test('post edit page can be rendered', function () {
-    $response = $this->loggedRequest->get('/admin/blog-post/'.$this->post->id.'/edit');
+    $response = $this->loggedRequest->get('/admin/blog-post/' . $this->post->id . '/edit');
 
     $response->assertStatus(200);
 
     $response->assertInertia(
-        fn (Assert $page) => $page
+        fn(Assert $page) => $page
             ->component('BlogPost/PostForm')
             ->has(
                 'post',
-                fn (Assert $page) => $page
+                fn(Assert $page) => $page
                     ->where('id', $this->post->id)
                     ->where('blog_author_id', $this->post->blog_author_id)
                     ->where('blog_category_id', $this->post->blog_category_id)
                     ->where('title', $this->post->title)
                     ->where('slug', $this->post->slug)
+                    ->where('summary', $this->post->summary)
                     ->where('content', $this->post->content)
                     ->where('image', $this->post->image)
                     ->where('image_url', $this->post->image_url)
@@ -104,10 +106,11 @@ test('post edit page can be rendered', function () {
 });
 
 test('post can be updated', function () {
-    $response = $this->loggedRequest->put('/admin/blog-post/'.$this->post->id, [
+    $response = $this->loggedRequest->put('/admin/blog-post/' . $this->post->id, [
         'blog_author_id' => null,
         'blog_category_id' => null,
         'title' => 'New Post Title',
+        'summary' => 'Post Summary',
         'content' => 'Post Content',
         'meta_tag_title' => 'Post Title Tag',
         'meta_tag_description' => 'Post Description Tag',
@@ -118,12 +121,12 @@ test('post can be updated', function () {
 
     $redirectResponse = $this->loggedRequest->get('/admin/blog-post');
     $redirectResponse->assertInertia(
-        fn (Assert $page) => $page
+        fn(Assert $page) => $page
             ->component('BlogPost/PostIndex')
             ->has(
                 'posts.data',
                 1,
-                fn (Assert $page) => $page
+                fn(Assert $page) => $page
                     ->where('id', $this->post->id)
                     ->where('title', 'New Post Title')
                     ->where('image_url', $this->post->image_url)
@@ -133,7 +136,7 @@ test('post can be updated', function () {
 });
 
 test('post can be deleted', function () {
-    $response = $this->loggedRequest->delete('/admin/blog-post/'.$this->user->id);
+    $response = $this->loggedRequest->delete('/admin/blog-post/' . $this->user->id);
 
     $response->assertRedirect('/admin/blog-post');
 
