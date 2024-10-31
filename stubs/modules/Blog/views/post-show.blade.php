@@ -1,12 +1,8 @@
 @extends('site-layout')
 
-@section('meta-title')
-    {{ $post->meta_tag_title }}
-@stop
+@section('meta-title', $post->meta_tag_title)
 
-@section('meta-description')
-    {{ $post->meta_tag_description }}
-@stop
+@section('meta-description', $post->meta_tag_description)
 
 @section('bodyEndScripts')
     @vite('resources-site/js/blog-app.js')

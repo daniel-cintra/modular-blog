@@ -1,12 +1,8 @@
 @extends('site-layout')
 
-@section('meta-title')
-    Blog
-@stop
+@section('meta-title', 'Blog')
 
-@section('meta-description')
-    Here you will find the latest news and updates about us.
-@stop
+@section('meta-description', 'Here you will find the latest news and updates about us.')
 
 @section('bodyEndScripts')
     @vite('resources-site/js/blog-app.js')
