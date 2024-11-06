@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "daniel-cintra/modular": "^0.3.0",
+        "daniel-cintra/modular": "^0.4.0",
         "cviebrock/eloquent-sluggable": "^11.0"
     },
     "require-dev": {
